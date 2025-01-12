@@ -16,13 +16,19 @@
   nav {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	padding: 1rem; /* Smaller padding for responsiveness */
+	flex-wrap: nowrap;
+	justify-content: space-between; /* Space between logo and nav items */
+	padding: 1rem;
+	background: rgba(0, 0, 0, 0.8); /* Add a background for visibility */
+	position: fixed; /* Fix navigation bar at the top */
+	width: 100%; /* Full width */
+	top: 0; /* Position at the very top */
+	z-index: 1000; /* Keep above other elements */
   }
   
   .logo {
 	color: white;
-	font-size: 1.2rem; /* Smaller font size for responsiveness */
+	font-size: 1.2rem; 
 	letter-spacing: 1px;
 	cursor: pointer;
   }
@@ -32,8 +38,12 @@
   }
   
   nav ul {
-	list-style-type: counter-style;
-	display: flex; /* Changed to flex for better responsiveness */
+	list-style-type: none; /* Remove bullets */
+	display: flex; /* Keep nav items in a horizontal row */
+	align-items: center; /* Align vertically */
+	justify-content: space-between; /* Align items to the right */
+	gap: 1rem; /* Add spacing between items */
+	flex-wrap: nowrap; /* Prevent wrapping to the next line */
   }
   
   nav ul li {
@@ -45,7 +55,7 @@
 	text-decoration: none;
 	font-weight: bold;
 	text-transform: capitalize;
-	padding: 10px; /* Adjusted padding */
+	padding: 10px;
   }
   
   nav ul li a:hover {
@@ -59,18 +69,35 @@
 	text-decoration: none;
 	border: 2px solid transparent;
 	font-weight: bold;
-	padding: 10px 20px; /* Adjusted padding */
+	padding: 10px 20px;
 	border-radius: 30px;
 	transition: transform 0.4s;
-	display: inline-flex; /* Ensure inline-flex for buttons */
-    align-items: center;
-    justify-content: center;
+	display: inline-block;
+	flex-wrap: nowrap;
   }
   
   .btn:hover {
-	transform: scale(1.1); /* Slightly reduced scaling */
+	transform: scale(1.1);
   }
   
+  /* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  nav ul {
+    justify-content: flex-end; /* Keep nav items aligned horizontally */
+    overflow-x: auto; /* Enable scrolling if content overflows */
+	flex-wrap: nowrap; 
+  }
+
+  nav ul li {
+    padding: 5px 10px; /* Reduce padding for smaller screens */
+	font-size: 14px;
+  }
+
+  .btn {
+	margin-left: auto; /* Push button to the right */
+    padding: 8px 16px; /* Adjust button size for mobile */
+  }
+}
   .content {
 	position: absolute;
 	top: 50%;
@@ -96,7 +123,70 @@
 	letter-spacing: 1px; /* Reduced letter-spacing for better readability */
 	font-size: 1.5vw; /* Responsive font size */
   }
-
+/* Resume Section */
+#resume {
+	padding: 50px 20px;
+	background-color: #030301;
+	text-align: center;
+  }
+  
+  .resume-container {
+	max-width: 900px;
+	margin: 0 auto;
+  }
+  
+  .resume-container h2 {
+	font-size: 2em;
+	margin-bottom: 10px;
+	color: #ebe0e0;
+  }
+  
+  .resume-container p {
+	font-size: 1em;
+	margin-bottom: 20px;
+	color: #666;
+  }
+  
+  .resume-btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+  }
+  
+  .resume-btn:hover {
+	background-color: #45a049;
+  }
+  
+  .pdf-viewer {
+	margin-top: 20px;
+	text-align: center;
+  }
+  
+  .pdf-viewer iframe {
+	width: 100%;
+	height: 500px;
+	border: none;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+	.pdf-viewer iframe {
+	  height: 400px;
+	}
+  }
+  
+  @media (max-width: 480px) {
+	.pdf-viewer iframe {
+	  height: 300px;
+	}
+  }
+  
 .newslatter {
 	margin-top: 30px;
   }
@@ -294,16 +384,7 @@ button:hover {
 	}
   }
   
-  /* Animation keyframes for the matrix rain effect */
-  @keyframes matrix-rain {
-	from {
-	  transform: translateY(-100%);
-	}
-	to {
-	  transform: translateY(100%);
-	}
-  }
-  
+
   
 .title h2{
 	color: rgb(9, 156, 253);
